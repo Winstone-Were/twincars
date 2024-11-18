@@ -1,7 +1,7 @@
 # Twin Cars OpenGL Project
-![C++](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png)
-![OpenGL](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/OpenGL_Logo_2019.svg/512px-OpenGL_Logo_2019.svg.png)
-![MIT](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/MIT_License_Logo.svg/512px-MIT_License_Logo.svg.png)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)
+![OpenGL](https://img.shields.io/badge/OpenGL-239120?logo=opengl&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 
 This project is a simple OpenGL application built using C++ that simulates twin cars. It leverages OpenGL, GLU, and GLUT for rendering and window management.
 
