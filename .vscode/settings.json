@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "stdlib.h": "c",
+        "glut.h": "c"
+    }
+}
