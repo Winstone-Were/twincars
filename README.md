@@ -1,4 +1,7 @@
 # Twin Cars OpenGL Project
+![C++](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/800px-ISO_C%2B%2B_Logo.svg.png)
+![OpenGL](https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/OpenGL_Logo_2019.svg/512px-OpenGL_Logo_2019.svg.png)
+![MIT](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/MIT_License_Logo.svg/512px-MIT_License_Logo.svg.png)
 
 This project is a simple OpenGL application built using C++ that simulates twin cars. It leverages OpenGL, GLU, and GLUT for rendering and window management.
 
@@ -24,6 +27,10 @@ sudo pacman -S freeglut
 ``` 
 
 ## Building the Project
+First clone the project using 
+```bash
+git clone https://github.com/Winstone-Were/twincarsOpenGLGame && cd twincarsOpenGLGame
+```
 
 To compile and build the project, you can use the provided `Makefile`. It will generate an executable in the `build` directory.
 
