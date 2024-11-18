@@ -88,5 +88,8 @@ Have fun playing the game and competing with your friend or practicing your driv
 ---
 ## Glossary
 
+Game running
 ![game running](screenshots/gamerunning.png)
+
+Game over
 ![game over](screenshots/gameover.png)
