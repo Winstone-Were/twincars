@@ -84,3 +84,9 @@ Each car has its own controls to navigate through the game environment.
 ## Enjoy the Game!
 
 Have fun playing the game and competing with your friend or practicing your driving skills!
+
+---
+## Glossary
+
+![game running](screenshots/gamerunning.png)
+![game over](screenshots/gameover.png)
