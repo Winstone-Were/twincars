@@ -6,6 +6,7 @@
 #include <GL/glut.h>
 #include <thread>
 #include <chrono>
+#include "rendertext.h"
 
 const int TARGET_FPS = 30;
 const double FRAME_DURATION = 1.0 / TARGET_FPS;
@@ -183,8 +184,6 @@ void drawRoad()
     }
 }
 
-
-
 void drawGameOver()
 {
     glColor3f(1.0f, 0.0f, 0.0f);
@@ -197,12 +196,63 @@ void drawGameOver()
     }
 }
 
+void drawInstructions()
+{
+    glColor3f(1.0f, 1.0f, 1.0f);
+    // Display instructions on the right side
+    glRasterPos2f(0.5f, 0.2f); // Adjust position for the right-side text
+    const char *rightInstructions1 = "A: Move Left";
+    while (*rightInstructions1)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *rightInstructions1);
+        rightInstructions1++;
+    }
+
+    glRasterPos2f(0.5f, 0.1f); // Adjust position for the next line
+    const char *rightInstructions2 = "D: Move Right";
+    while (*rightInstructions2)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *rightInstructions2);
+        rightInstructions2++;
+    }
+
+    // Display instructions on the left side
+    glRasterPos2f(-0.8f, 0.2f); // Adjust position for the left-side text
+    const char *leftInstructions1 = "J: Move Left";
+    while (*leftInstructions1)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *leftInstructions1);
+        leftInstructions1++;
+    }
+
+    glRasterPos2f(-0.8f, 0.1f); // Adjust position for the next line
+    const char *leftInstructions2 = "L: Move Right";
+    while (*leftInstructions2)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *leftInstructions2);
+        leftInstructions2++;
+    }
+}
+
+void drawPauseScreen()
+{
+    glColor3f(0.0f, 0.0f, 1.0f);
+    glRasterPos2f(-0.2f, 0.0f);
+    const char *msg = "PAUSED";
+    while (*msg)
+    {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *msg);
+        msg++;
+    }
+}
+
+
 void renderBitmapString(float x, float y, void *font, const std::string &text)
 {
     glRasterPos2f(x, y);
     for (char c : text)
     {
-        glutBitmapCharacter(font, c); 
+        glutBitmapCharacter(font, c);
     }
 }
 
@@ -234,7 +284,11 @@ void processInput(GLFWwindow *window)
     }
     if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
     {
-        isPaused = !isPaused;
+        isPaused = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+    {
+        isPaused = false;
     }
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
@@ -254,15 +308,21 @@ void display()
     {
         drawGameOver();
     }
-    else
+    else if (!isPaused)
     {
         drawRoad();
         drawCar(car1X, -0.8f);
         drawCar(car2X, -0.8f);
         drawBlocks();
     }
+    else
+    {
+        drawPauseScreen();
+        drawInstructions();
+    }
     glColor3f(1.0f, 1.0f, 1.0f);
-    renderBitmapString(-0.9f, 0.9f, GLUT_BITMAP_HELVETICA_18, "Score: " + std::to_string(score));
+    // renderBitmapString(-0.9f, 0.9f, GLUT_BITMAP_HELVETICA_18, "Score: " + std::to_string(score));
+    renderText(-0.8f, 0.8f, "Score: " + std::to_string(score), GLUT_BITMAP_HELVETICA_18);
     glfwSwapBuffers(glfwGetCurrentContext());
 }
 
@@ -285,7 +345,7 @@ int main()
     glfwMakeContextCurrent(window);
 
     int argc = 1;
-    char* argv[1] = { (char*)"Something" };
+    char *argv[1] = {(char *)"Something"};
     glutInit(&argc, argv);
 
     initializeBlocks();
@@ -299,7 +359,7 @@ int main()
         {
             // Sleep for the remaining time of the frame
             std::this_thread::sleep_for(
-            std::chrono::duration<double>(FRAME_DURATION - elapsedTime));
+                std::chrono::duration<double>(FRAME_DURATION - elapsedTime));
         }
         lastFrameTime = glfwGetTime();
 
