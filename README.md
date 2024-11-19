@@ -1,4 +1,5 @@
 # Twin Cars OpenGL Project
+[![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)](#)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=c%2B%2B&logoColor=white)
 ![OpenGL](https://img.shields.io/badge/OpenGL-239120?logo=opengl&logoColor=white)
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
