@@ -1,14 +1,14 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <GL/glut.h>
 #include <iostream>
 #include <cstdlib>
 #include <string>
-#include <GL/glut.h>
 #include <thread>
 #include <chrono>
 #include "rendertext.h"
 
-const int TARGET_FPS = 30;
+const int TARGET_FPS = 60;
 const double FRAME_DURATION = 1.0 / TARGET_FPS;
 
 float car1X = -0.4f; // Car 1 position
@@ -229,7 +229,7 @@ void drawInstructions()
     const char *leftInstructions2 = "L: Move Right";
     while (*leftInstructions2)
     {
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *leftInstructions2);
+       glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *leftInstructions2);
         leftInstructions2++;
     }
 }
